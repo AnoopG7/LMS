@@ -55,7 +55,7 @@ export function NavUpgrade({ sx, ...other }: BoxProps) {
             noWrap
             sx={{ mb: 0, color: 'var(--layout-nav-text-primary-color)' }}
           >
-            Built By Ai
+            Anoop Gupta
           </Typography>
 
           <Typography

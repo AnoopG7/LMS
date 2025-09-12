@@ -79,7 +79,7 @@ export const navData: NavSectionProps['data'] = [
         title: 'Chat',
         path: paths.main.chat,
         icon: ICONS.blog,
-        caption: 'Chat with your batch',
+        caption: 'Chat with AI assistant for study help',
         deepMatch: false,
       },
     ],
