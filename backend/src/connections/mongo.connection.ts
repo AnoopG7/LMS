@@ -9,10 +9,14 @@ class MongoConnection {
 
   public connect = async () => {
     try {
+      if (!this.connectUrl) {
+        throw new Error('MONGODB_URI is not defined in environment variables');
+      }
       await mongoose.connect(this.connectUrl);
       console.log('Connected to MongoDB');
-    } catch (error) {
-      throw new Error('Error connecting to MongoDB');
+    } catch (error: any) {
+      console.error('MongoDB connection error:', error.message);
+      throw new Error('Error connecting to MongoDB: ' + (error.message || 'Unknown error'));
     }
   };
 }

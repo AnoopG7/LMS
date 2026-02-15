@@ -167,8 +167,4 @@ const profileSchema = new Schema<IProfile>(
   { timestamps: true }
 );
 
-// Index for better performance
-profileSchema.index({ userId: 1 });
-profileSchema.index({ username: 1 });
-
 export default mongoose.model<IProfile>('Profile', profileSchema);
