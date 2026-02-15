@@ -61,6 +61,23 @@ export default class ExpressConnection {
   }
 
   private routes() {
+    // Health check endpoints for Render
+    this.app.get('/', (req: Request, res: Response) => {
+      res.json({ 
+        status: 'ok', 
+        message: 'LMS Backend API is running',
+        timestamp: new Date().toISOString()
+      });
+    });
+    
+    this.app.get('/health', (req: Request, res: Response) => {
+      res.json({ 
+        status: 'healthy', 
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+      });
+    });
+
     this.app.get('/test', (req: Request, res: Response, next: NextFunction) => {
       res.json({ message: 'Hello World' });
     });
