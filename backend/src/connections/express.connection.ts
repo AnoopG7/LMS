@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import winston from 'winston';
-import bodyParser from 'body-parser';
 import rateLimit from 'express-rate-limit';
 
 import ExpressError from '../libs/express/error.libs';
@@ -56,9 +55,9 @@ export default class ExpressConnection {
     this.app.use(this.limiter);
     this.app.use(helmet());
     this.app.use(morgan('dev'));
-    this.app.use(bodyParser.json({ limit: '30mb' }));
+    this.app.use(express.json({ limit: '30mb' }));
     this.app.use(cors({ origin: '*', credentials: true }));
-    this.app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+    this.app.use(express.urlencoded({ limit: '30mb', extended: true }));
   }
 
   private routes() {
